@@ -1,0 +1,22 @@
+install.packages("dplyr", repos='http://cran.us.r-project.org')
+install.packages("ggplot2", repos='http://cran.us.r-project.org')
+library(dplyr)
+library(ggplot2)
+
+datos <- data.frame(
+  Familia = c("Urticaceae cecropia", "Rhamnaceae", "Dilleniaceae", "Metastomataceae",
+              "Cannabaceae Trema", "Myrtaceae", "Polypodiaceae", "Malvaceae  Heliocarpus",
+              "Fabaceae macrolobium", "Poaceae", "Malvaceae Bombacoideae", "Loranthaceae oryctanthus"),
+  Conteo = c(845, 120, 56, 39, 12, 21, 10, 7, 8, 6, 5, 4)
+)
+
+datos <- datos %>%
+  mutate(Porcentaje = Conteo / sum(Conteo) * 100)
+
+print(datos)
+ggplot(datos, aes(x = reorder(Familia, Porcentaje), y = Porcentaje)) +
+  geom_bar(stat = "identity", fill = "skyblue") +
+  coord_flip() +
+  labs(title = "Distribución porcentual del polen por familia",
+       x = "", y = "% de polen") +
+  theme_minimal()
