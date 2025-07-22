@@ -20,3 +20,5 @@ ggplot(datos, aes(x = reorder(Familia, Porcentaje), y = Porcentaje)) +
   labs(title = "Distribución porcentual del polen por familia",
        x = "", y = "% de polen") +
   theme_minimal()
+
+#La planta más abundante es el yarumo (Cecropia)
