@@ -21,4 +21,4 @@ ggplot(datos, aes(x = reorder(Familia, Porcentaje), y = Porcentaje)) +
        x = "", y = "% de polen") +
   theme_minimal()
 
-#La planta más abundante es el yarumo (Urticacea cecropia)
+#La planta más abundante es el yarumo (Urticaceae cecropia) con 845 polen
